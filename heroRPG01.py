@@ -29,7 +29,8 @@ class Character:
 Hero = Character(10,5,"Hero")
 Goblin = Character(8,2,"Goblin")
 
-
+class Hero(Character):
+    super()__init__(self,health,power,name)
 
 while Goblin.health > 0 and Hero.health > 0:
     print(f"You have {Hero.print_status()} health and {Hero.power} power.")
