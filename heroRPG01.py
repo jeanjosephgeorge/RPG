@@ -17,6 +17,14 @@ class Character:
         print (f"{self.name} does {self.power} damage to the {other.name}.")
         return other.health
 
+    def alive (self):
+        if self.health<=0:
+            return False
+        else:
+            return True
+
+    def print_status(self):
+        return self.health
 
 Hero = Character(10,5,"Hero")
 Goblin = Character(8,2,"Goblin")
@@ -32,10 +40,11 @@ while Goblin.health > 0 and Hero.health > 0:
     print("2. do nothing")
     print("3. flee")
     print("> ", end=' ')
+
     raw_input = input()
     if raw_input == "1":
         Hero.attack(Goblin)
-        if Goblin.health <= 0:
+        if Goblin.alive == False:
             print("The goblin is dead.")
     elif raw_input == "2":
         pass
@@ -48,7 +57,7 @@ while Goblin.health > 0 and Hero.health > 0:
     if Goblin.health > 0:
         # Goblin attacks hero
         Goblin.attack(Hero)
-        if Hero.health <= 0:
+        if Hero.alive == False:
             print("You are dead.")
 
 #main()
