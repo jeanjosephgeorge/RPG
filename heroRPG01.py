@@ -12,15 +12,16 @@ class Character:
         self.power = power
         self.name = name
 
+    def attack (self,other):
+        other.health -= self.power
+        print (f"{self.name} does {self.power} damage to the {other.name}.")
+        return other.health
+
+
 Hero = Character(10,5,"Hero")
-Goblin = Character(6,2,"Goblin")
+Goblin = Character(8,2,"Goblin")
 
 
-# def main():
-#     hero_health = 10
-#     hero_power = 5
-#     goblin_health = 6
-#     goblin_power = 2
 
 while Goblin.health > 0 and Hero.health > 0:
     print(f"You have {Hero.health} health and {Hero.power} power.")
@@ -33,9 +34,7 @@ while Goblin.health > 0 and Hero.health > 0:
     print("> ", end=' ')
     raw_input = input()
     if raw_input == "1":
-        # Hero attacks goblin
-        Goblin.health -= Hero.power
-        print(f"You do {Hero.power} damage to the goblin.")
+        Hero.attack(Goblin)
         if Goblin.health <= 0:
             print("The goblin is dead.")
     elif raw_input == "2":
@@ -48,8 +47,7 @@ while Goblin.health > 0 and Hero.health > 0:
 
     if Goblin.health > 0:
         # Goblin attacks hero
-        Hero.health -= Goblin.power
-        print(f"The goblin does {Goblin.power} damage to you.")
+        Goblin.attack(Hero)
         if Hero.health <= 0:
             print("You are dead.")
 
