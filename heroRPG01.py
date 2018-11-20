@@ -32,8 +32,8 @@ Goblin = Character(8,2,"Goblin")
 
 
 while Goblin.health > 0 and Hero.health > 0:
-    print(f"You have {Hero.health} health and {Hero.power} power.")
-    print(f"The goblin has {Goblin.health} health and {Goblin.power} power.")
+    print(f"You have {Hero.print_status()} health and {Hero.power} power.")
+    print(f"The goblin has {Goblin.print_status()} health and {Goblin.power} power.")
     print()
     print("What do you want to do?")
     print("1. fight goblin")
